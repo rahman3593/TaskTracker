@@ -1,0 +1,64 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Rider / VS Code / Visual Studio files
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio build caches
+.vs/
+
+# DotCover is a code coverage tool
+*.dotCover
+
+# NCrunch
+_NCrunch_*
+.*crunch*.local.xml
+
+# Resharper
+_ReSharper.Caches/
+
+# Test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+*.nuspec
+*.psmdcp
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Entity Framework migrations history
+Migrations/ (if you want to regenerate every time; optional)
+
+# Azure / IIS
+.publish/
+*.publishsettings
+appsettings.Development.json
+appsettings.*.json
+
+# Logs
+*.log
+
+# OS generated
+[Dd]esktop.ini
+[Tt]humbs.db
+ehthumbs.db
+
+# Others
+*.swp
+*.bak
+*.tmp
+*.dbmdl
+*.jfm
