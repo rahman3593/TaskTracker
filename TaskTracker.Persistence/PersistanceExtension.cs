@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,6 +25,20 @@ namespace TaskTracker.Persistence
 
             services.AddScoped<ITaskRepository, TaskRepository>();
             return services;
+        }
+        public static IApplicationBuilder ConfigurePersistence(this IApplicationBuilder app)
+        {
+            using var scope = app.ApplicationServices.CreateScope();
+            var db = scope.ServiceProvider.GetRequiredService<TaskTrackerDbContext>();
+
+            if (db.Database.IsNpgsql())
+            {
+                db.Database.Migrate();
+            }
+
+            db.Seed().Wait();
+
+            return app;
         }
     }
 }
