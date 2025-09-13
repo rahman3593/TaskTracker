@@ -36,7 +36,7 @@ namespace TaskTracker.Persistence.Repositories
             return true;
         }
 
-        public async Task<IEnumerable<TaskItem>> GetAllAsync() => await _context.Tasks.ToListAsync();
+        public IQueryable<TaskItem> GetAll() => _context.Tasks.AsQueryable();
 
 
         public async Task<TaskItem?> GetByIdAsync(Guid id) => await _context.Tasks.FindAsync(id);

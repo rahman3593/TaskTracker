@@ -9,7 +9,7 @@ namespace TaskTracker.Application.Repositories.Interfaces
 {
     public interface ITaskRepository
     {
-        Task<IEnumerable<TaskItem>> GetAllAsync();
+        IQueryable<TaskItem> GetAll();
         Task<TaskItem?> GetByIdAsync(Guid id);
         Task<TaskItem> AddAsync(TaskItem item);
         Task<bool> DeleteAsync(Guid id);
