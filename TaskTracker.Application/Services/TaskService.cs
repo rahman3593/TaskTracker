@@ -19,9 +19,12 @@ namespace TaskTracker.Application.Services
 
         public Task<bool> DeleteAsync(Guid id) => _taskRepository.DeleteAsync(id);
 
-        public async Task<PagedResult<TaskItem>> GetAllAsync(int pageNumber, int pageSize)
+        public async Task<PagedResult<TaskItem>> GetAllAsync(int pageNumber, int pageSize, bool? isCompleted)
         {
             var query = _taskRepository.GetAll();
+
+            if (isCompleted.HasValue)
+                query = query.Where(t => t.IsCompleted == isCompleted.Value);
 
             var totalCount = await query.CountAsync();
             var items = await query

@@ -10,7 +10,7 @@ namespace TaskTracker.Application.Services.Interfaces
 {
     public interface ITaskService
     {
-        Task<PagedResult<TaskItem>> GetAllAsync(int pageNumber, int PageSize);
+        Task<PagedResult<TaskItem>> GetAllAsync(int pageNumber, int PageSize, bool? isCompleted);
         Task<TaskItem?> GetByIdAsync(Guid id);
         Task<TaskItem> AddAsync(TaskItem item);
         Task<bool> DeleteAsync(Guid id);
