@@ -16,7 +16,7 @@ namespace TaskTracker.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll(int pageNumber = 1, int pageSize = 10, bool? isCompleted = null)
+        public async Task<IActionResult> GetAll([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10, [FromQuery] bool? isCompleted = null)
         {
             var tasks = await _taskService.GetAllAsync(pageNumber, pageSize, isCompleted);
             return Ok(tasks);
